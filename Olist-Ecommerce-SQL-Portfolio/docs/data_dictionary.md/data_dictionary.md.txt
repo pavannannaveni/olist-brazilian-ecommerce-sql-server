@@ -1,132 +1,130 @@
-# Data Dictionary
+# Olist Data Dictionary
 
-This dictionary describes the tables in the Olist Brazilian E-Commerce dataset loaded into the `Ecommerce` SQL Server database. The companion file `data_dictionary_columns.csv` lists the column names and SQL types found in this database.
+This document describes the tables and columns in the Olist Brazilian E-Commerce dataset used by this project.
 
-## Table grains and logical relationships
-
-| Table | One row represents |
-|---|---|
-| `orders` | One order |
-| `order_items` | One item within an order |
-| `order_payments` | One payment record or sequence for an order |
-| `order_reviews` | One review record |
-| `customers` | One customer record associated with an order |
-| `products` | One product |
-| `sellers` | One seller |
-| `category_translation` | One product category translation |
-| `geolocation` | One geolocation record; a ZIP prefix may have multiple records |
-
-Common logical joins:
-
-- `orders.customer_id` → `customers.customer_id`
-- `order_items.order_id` → `orders.order_id`
-- `order_items.product_id` → `products.product_id`
-- `order_items.seller_id` → `sellers.seller_id`
-- `order_payments.order_id` → `orders.order_id`
-- `order_reviews.order_id` → `orders.order_id`
-- `products.product_category_name` → `category_translation.product_category_name`
-
-Customer, seller, and geolocation tables can have multiple records for a ZIP prefix. Check the data grain before joining them. Also, aggregate `order_items` and `order_payments` separately by `order_id` before joining them; otherwise, multiple items and payments can multiply totals.
-
-## `orders`
-
-| Column | Meaning |
-|---|---|
-| `order_id` | Unique identifier for an order |
-| `customer_id` | Identifier for the customer record associated with the order |
-| `order_status` | Current recorded status of the order |
-| `order_purchase_timestamp` | Date and time the order was placed |
-| `order_approved_at` | Date and time the order was approved |
-| `order_delivered_carrier_date` | Date and time the order was handed to the carrier |
-| `order_delivered_customer_date` | Date and time the order was delivered to the customer |
-| `order_estimated_delivery_date` | Estimated delivery date |
-
-## `order_items`
-
-| Column | Meaning |
-|---|---|
-| `order_id` | Identifier for the order containing the item |
-| `order_item_id` | Sequential item number within the order |
-| `product_id` | Identifier for the product |
-| `seller_id` | Identifier for the seller |
-| `shipping_limit_date` | Latest date by which the seller should hand the item to the carrier |
-| `price` | Item price, in Brazilian reais (BRL) |
-| `freight_value` | Freight charge for the item, in BRL |
-
-## `order_payments`
-
-| Column | Meaning |
-|---|---|
-| `order_id` | Identifier for the order |
-| `payment_sequential` | Sequence number for a payment record within the order |
-| `payment_type` | Payment method |
-| `payment_installments` | Number of installments |
-| `payment_value` | Value of the payment record, in BRL |
-
-## `order_reviews`
-
-| Column | Meaning |
-|---|---|
-| `review_id` | Identifier for the review |
-| `order_id` | Identifier for the reviewed order |
-| `review_score` | Customer's review score, usually on a 1–5 scale |
-| `review_comment_title` | Review title |
-| `review_comment_message` | Review text |
-| `review_creation_date` | Date and time the review was created |
-| `review_answer_timestamp` | Date and time the review was answered |
-
-## `customers`
-
-| Column | Meaning |
-|---|---|
-| `customer_id` | Identifier for the customer record associated with an order |
-| `customer_unique_id` | Identifier used to recognize the same customer across orders |
-| `customer_zip_code_prefix` | Customer's ZIP-code prefix |
-| `customer_city` | Customer's city |
-| `customer_state` | Customer's state abbreviation |
-
-## `products`
-
-| Column | Meaning |
-|---|---|
-| `product_id` | Identifier for the product |
-| `product_category_name` | Product category name in the source language |
-| `product_name_lenght` | Length of the product name field; the source column uses this spelling |
-| `product_description_lenght` | Length of the product description field; the source column uses this spelling |
-| `product_photos_qty` | Number of product photos |
-| `product_weight_g` | Product weight in grams |
-| `product_length_cm` | Product length in centimeters |
-| `product_height_cm` | Product height in centimeters |
-| `product_width_cm` | Product width in centimeters |
-
-## `sellers`
-
-| Column | Meaning |
-|---|---|
-| `seller_id` | Identifier for the seller |
-| `seller_zip_code_prefix` | Seller's ZIP-code prefix |
-| `seller_city` | Seller's city |
-| `seller_state` | Seller's state abbreviation |
+The data is stored in the SQL Server database `Ecommerce`, under the `dbo` schema. The imported columns are `varchar`; convert date and numeric text to suitable SQL types when analyzing them. See `data_dictionary_columns.csv` for the imported SQL column types and lengths.
 
 ## `category_translation`
 
+Maps Portuguese product category names to English names.
+
 | Column | Meaning |
 |---|---|
-| `product_category_name` | Product category name in the source language |
-| `product_category_name_english` | English translation of the product category |
+| `product_category_name` | Category name in Portuguese; used by the products table. |
+| `product_category_name_english` | English translation of the category name. |
+
+## `customers`
+
+Contains customer records and location details.
+
+| Column | Meaning |
+|---|---|
+| `customer_id` | Customer record identifier referenced by orders. |
+| `customer_unique_id` | Identifier for the customer across orders; use this for repeat-customer analysis. |
+| `customer_zip_code_prefix` | Customer postal-code prefix. |
+| `customer_city` | Customer city. |
+| `customer_state` | Customer state abbreviation. |
 
 ## `geolocation`
 
+Contains geographic coordinates and place names associated with postal-code prefixes. A prefix may have multiple rows, so summarize or deduplicate this table before joining it to sales data.
+
 | Column | Meaning |
 |---|---|
-| `geolocation_zip_code_prefix` | ZIP-code prefix associated with the location |
-| `geolocation_lat` | Latitude |
-| `geolocation_lng` | Longitude |
-| `geolocation_city` | City associated with the location |
-| `geolocation_state` | State abbreviation associated with the location |
+| `geolocation_zip_code_prefix` | Postal-code prefix. |
+| `geolocation_lat` | Latitude. |
+| `geolocation_lng` | Longitude. |
+| `geolocation_city` | City associated with the location. |
+| `geolocation_state` | State abbreviation. |
 
-## Data notes
+## `orders`
 
-- The imported core-table columns are stored as `varchar`; analysis queries convert dates and amounts when needed.
-- SQL Server has no primary or foreign key constraints defined on the imported tables. The relationships above are logical relationships used for analysis.
-- One delivered order in September 2016 has no matching payment record in the imported payment table. The analysis keeps this visible as missing instead of recording it as zero.
+One row per order in the supplied dataset.
+
+| Column | Meaning |
+|---|---|
+| `order_id` | Order identifier. |
+| `customer_id` | Customer record that placed the order. |
+| `order_status` | Current recorded status of the order. |
+| `order_purchase_timestamp` | Date and time the customer placed the order. |
+| `order_approved_at` | Date and time the order was approved, when available. |
+| `order_delivered_carrier_date` | Date and time the order was handed to the carrier, when available. |
+| `order_delivered_customer_date` | Date and time the order was delivered, when available. |
+| `order_estimated_delivery_date` | Estimated delivery date. |
+
+## `order_items`
+
+Contains the products included in each order. An order can contain multiple item rows.
+
+| Column | Meaning |
+|---|---|
+| `order_id` | Order containing the item. |
+| `order_item_id` | Item sequence number within the order. |
+| `product_id` | Product identifier. |
+| `seller_id` | Seller identifier. |
+| `shipping_limit_date` | Seller shipping deadline for the item. |
+| `price` | Item merchandise price in Brazilian reais (BRL). |
+| `freight_value` | Freight amount for the item in BRL. |
+
+## `order_payments`
+
+Contains payment records. An order can have multiple payment rows.
+
+| Column | Meaning |
+|---|---|
+| `order_id` | Order associated with the payment. |
+| `payment_sequential` | Sequence number of the payment within the order. |
+| `payment_type` | Payment method. |
+| `payment_installments` | Number of payment installments. |
+| `payment_value` | Amount recorded for the payment in BRL. |
+
+## `order_reviews`
+
+Contains customer review details associated with orders.
+
+| Column | Meaning |
+|---|---|
+| `review_id` | Review identifier. |
+| `order_id` | Order associated with the review. |
+| `review_score` | Customer rating recorded for the review. |
+| `review_comment_title` | Optional review title. |
+| `review_comment_message` | Optional review text. |
+| `review_creation_date` | Date the review was created. |
+| `review_answer_timestamp` | Date and time the review was answered, when available. |
+
+## `products`
+
+Contains product attributes.
+
+| Column | Meaning |
+|---|---|
+| `product_id` | Product identifier. |
+| `product_category_name` | Product category name in Portuguese, when available. |
+| `product_name_lenght` | Product name length; the source column uses this spelling. |
+| `product_description_lenght` | Product description length; the source column uses this spelling. |
+| `product_photos_qty` | Number of product photos. |
+| `product_weight_g` | Product weight in grams. |
+| `product_length_cm` | Product length in centimeters. |
+| `product_height_cm` | Product height in centimeters. |
+| `product_width_cm` | Product width in centimeters. |
+
+## `sellers`
+
+Contains seller identifiers and location details.
+
+| Column | Meaning |
+|---|---|
+| `seller_id` | Seller identifier. |
+| `seller_zip_code_prefix` | Seller postal-code prefix. |
+| `seller_city` | Seller city. |
+| `seller_state` | Seller state abbreviation. |
+
+## Relationship and analysis notes
+
+- Join `orders.customer_id` to `customers.customer_id`.
+- Join `order_items.order_id`, `order_payments.order_id`, and `order_reviews.order_id` to `orders.order_id`.
+- Join `order_items.product_id` to `products.product_id` and `order_items.seller_id` to `sellers.seller_id`.
+- Join `products.product_category_name` to `category_translation.product_category_name` for English category names.
+- `customer_unique_id` is the appropriate customer identifier for counting people or repeat purchases.
+- `price` is merchandise value and `freight_value` is shipping cost. Payment totals are recorded separately in `order_payments`.
+- Orders, items, payments, and reviews can have one-to-many relationships. Aggregate each detail table to the intended level before joining, so totals are not multiplied.
