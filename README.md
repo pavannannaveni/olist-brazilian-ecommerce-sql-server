@@ -1,30 +1,25 @@
-# Olist Brazilian E-commerce SQL Server
+# Olist Brazilian E-Commerce Analysis with SQL Server
 
-This repository contains a SQL Server portfolio project focused on Olist Brazilian e-commerce data. It includes SQL scripts, queries, and documentation for analyzing sales, order flows, customer behavior, payments, and seller performance.
+A SQL Server portfolio project using the public [Brazilian E-Commerce dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
-## Repository structure
+## Project contents
 
-- `Olist-Ecommerce-SQL-Portfolio/` — main SQL portfolio project folder
-  - `sql/` — SQL scripts and queries
-  - `docs/` — project documentation and analysis notes
+- [Schema inventory query](Olist-Ecommerce-SQL-Portfolio/sql/01_schema_inventory.sql)
+- [Monthly delivered-order analysis](Olist-Ecommerce-SQL-Portfolio/sql/04_monthly_revenue_by_purchase_month.sql)
+- [SQL column metadata](Olist-Ecommerce-SQL-Portfolio/docs/data_dictionary_columns.csv)
 
-## Project focus
+## Current analysis
 
-The project demonstrates practical SQL skills using a realistic e-commerce dataset, including:
+The monthly query groups delivered orders by purchase month. It calculates merchandise value and freight from order items, and recorded payment value from payment records. Each is aggregated by order before joining to avoid multiplying totals.
 
-- data profiling and cleaning
-- joins across multiple tables
-- KPI calculations
-- customer and order analysis
-- product and seller performance analysis
-- revenue and payments insights
+One delivered order in September 2016 has no matching payment record. The analysis reports the payment total as `NULL` and counts the missing record instead of treating it as a zero payment.
 
-## Getting started
+## Data and setup
 
-1. Open the `Olist-Ecommerce-SQL-Portfolio` folder.
-2. Review the SQL scripts and documentation in the `sql/` and `docs/` directories.
-3. Run the scripts in SQL Server Management Studio (SSMS) or another SQL Server tool.
+The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; the analysis query converts dates and amounts when needed.
 
-## Notes
+To run the analysis, open the SQL file in SQL Server Management Studio and execute it against a database loaded with the Olist tables. The dataset itself is not included in this repository.
 
-This repo is intended as a portfolio/project showcase for SQL analytics and business intelligence work using Brazilian e-commerce data.
+## Data source
+
+[Olist Brazilian E-Commerce Public Dataset on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
