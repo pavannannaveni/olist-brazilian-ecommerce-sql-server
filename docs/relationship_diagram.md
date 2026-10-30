@@ -3,7 +3,7 @@
 This diagram shows the common join paths used in the project. The arrows identify join columns; they do not assert enforced foreign-key constraints or guaranteed relationship counts.
 
 ```mermaid
-flowchart LR
+flowchart TB
     C["customers"] -->|customer_id| O["orders"]
     O -->|order_id| I["order_items"]
     P["products"] -->|product_id| I
