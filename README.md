@@ -5,6 +5,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 ## Project contents
 
 - [Schema inventory query](sql/02_schema/01_schema_inventory.sql)
+- [Logical data relationship diagram](docs/relationship_diagram.md)
 - [Product category mapping quality check](sql/03_data_quality/01_product_category_mapping_gaps.sql)
 - [Monthly delivered-order analysis](sql/04_business_analysis/04_monthly_revenue_by_purchase_month.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
