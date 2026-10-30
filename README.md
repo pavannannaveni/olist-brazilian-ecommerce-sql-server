@@ -10,6 +10,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
+- [Delivery timing and review-score analysis](sql/04_business_analysis/08_delivery_timing_vs_review_scores.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
 
@@ -24,6 +25,8 @@ The product-category analysis reports delivered item counts, distinct delivered 
 The category quality check identified all 1,537 items in the `[Uncategorized or missing product]` group as products with a blank category. These items represent BRL 170,726.63 (1.29%) of merchandise value and BRL 26,969.06 in freight across 1,392 delivered orders. It found no blank item product IDs or product IDs missing from the products table.
 
 The delivery-performance analysis covers 96,478 delivered orders. Eight orders lacked an actual or estimated date, leaving 96,470 assessable orders. Of those, 89,936 (93.23%) arrived on or before the estimated calendar date. March 2018 had the lowest monthly on-time rate at 81.04% (1,328 late orders). Average days from the estimate are negative when delivery was early and positive when it was late.
+
+The delivery timing and review-score analysis compares per-order review averages for late versus on-time or early deliveries. It aggregates review rows to one row per order and excludes orders missing actual or estimated delivery dates. This is a descriptive comparison and does not establish that delivery timing caused a review score.
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
