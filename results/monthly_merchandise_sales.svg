@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">Monthly merchandise value from delivered orders</title>
+<desc id="desc">Line chart of monthly merchandise value in Brazilian reais from September 2016 to August 2018. Freight and payment totals are excluded. The line is broken where November 2016 has no row in the supplied query output.</desc>
+<rect width="1440" height="900" fill="#ffffff"/>
+<text x="720" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#17324D">Monthly Merchandise Value</text>
+<text x="720" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#526579">Delivered orders by purchase month · BRL · freight and payment totals excluded</text>
+<line x1="150" y1="680" x2="1330" y2="680" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="687" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 0</text>
+<line x1="150" y1="583.6363636363636" x2="1330" y2="583.6363636363636" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="590.6363636363636" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 200k</text>
+<line x1="150" y1="487.27272727272725" x2="1330" y2="487.27272727272725" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="494.27272727272725" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 400k</text>
+<line x1="150" y1="390.90909090909093" x2="1330" y2="390.90909090909093" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="397.90909090909093" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 600k</text>
+<line x1="150" y1="294.54545454545456" x2="1330" y2="294.54545454545456" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="301.54545454545456" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 800k</text>
+<line x1="150" y1="198.1818181818182" x2="1330" y2="198.1818181818182" stroke="#D9E2E8" stroke-width="1.5"/><text x="130" y="205.1818181818182" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#435466">R$ 1000k</text>
+<line x1="150" y1="150" x2="150" y2="680" stroke="#526579" stroke-width="2"/>
+<line x1="150" y1="680" x2="1330" y2="680" stroke="#526579" stroke-width="2"/>
+<line x1="150" y1="680" x2="150" y2="689" stroke="#526579" stroke-width="1.5"/><text x="150" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Sep '16</text>
+<line x1="252.6086956521739" y1="680" x2="252.6086956521739" y2="689" stroke="#526579" stroke-width="1.5"/><text x="252.6086956521739" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Nov '16</text>
+<line x1="355.2173913043478" y1="680" x2="355.2173913043478" y2="689" stroke="#526579" stroke-width="1.5"/><text x="355.2173913043478" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Jan '17</text>
+<line x1="457.82608695652175" y1="680" x2="457.82608695652175" y2="689" stroke="#526579" stroke-width="1.5"/><text x="457.82608695652175" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Mar '17</text>
+<line x1="560.4347826086956" y1="680" x2="560.4347826086956" y2="689" stroke="#526579" stroke-width="1.5"/><text x="560.4347826086956" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">May '17</text>
+<line x1="663.0434782608696" y1="680" x2="663.0434782608696" y2="689" stroke="#526579" stroke-width="1.5"/><text x="663.0434782608696" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Jul '17</text>
+<line x1="765.6521739130435" y1="680" x2="765.6521739130435" y2="689" stroke="#526579" stroke-width="1.5"/><text x="765.6521739130435" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Sep '17</text>
+<line x1="868.2608695652174" y1="680" x2="868.2608695652174" y2="689" stroke="#526579" stroke-width="1.5"/><text x="868.2608695652174" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Nov '17</text>
+<line x1="970.8695652173913" y1="680" x2="970.8695652173913" y2="689" stroke="#526579" stroke-width="1.5"/><text x="970.8695652173913" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Jan '18</text>
+<line x1="1073.4782608695652" y1="680" x2="1073.4782608695652" y2="689" stroke="#526579" stroke-width="1.5"/><text x="1073.4782608695652" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Mar '18</text>
+<line x1="1176.0869565217392" y1="680" x2="1176.0869565217392" y2="689" stroke="#526579" stroke-width="1.5"/><text x="1176.0869565217392" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">May '18</text>
+<line x1="1278.695652173913" y1="680" x2="1278.695652173913" y2="689" stroke="#526579" stroke-width="1.5"/><text x="1278.695652173913" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Jul '18</text>
+<line x1="1330" y1="680" x2="1330" y2="689" stroke="#526579" stroke-width="1.5"/><text x="1330" y="718" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#435466">Aug '18</text>
+<path d="M 150.0 679.9 L 201.3 660.6" fill="none" stroke="#176B87" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 303.9 680.0 L 355.2 626.1 L 406.5 567.1 L 457.8 506.9 L 509.1 515.9 L 560.4 444.2 L 611.7 476.7 L 663.0 448.0 L 714.3 412.7 L 765.7 387.3 L 817.0 367.7 L 868.3 204.1 L 919.6 330.2 L 970.9 234.5 L 1022.2 281.8 L 1073.5 220.7 L 1124.8 210.9 L 1176.1 209.0 L 1227.4 267.5 L 1278.7 261.8 L 1330.0 276.0" fill="none" stroke="#176B87" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150.0" cy="679.9" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2016-09: BRL 134.97</title></circle>
+<circle cx="201.3" cy="660.6" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2016-10: BRL 40,325.11</title></circle>
+<circle cx="303.9" cy="680.0" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2016-12: BRL 10.90</title></circle>
+<circle cx="355.2" cy="626.1" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-01: BRL 111,798.36</title></circle>
+<circle cx="406.5" cy="567.1" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-02: BRL 234,223.40</title></circle>
+<circle cx="457.8" cy="506.9" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-03: BRL 359,198.85</title></circle>
+<circle cx="509.1" cy="515.9" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-04: BRL 340,669.68</title></circle>
+<circle cx="560.4" cy="444.2" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-05: BRL 489,338.25</title></circle>
+<circle cx="611.7" cy="476.7" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-06: BRL 421,923.37</title></circle>
+<circle cx="663.0" cy="448.0" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-07: BRL 481,604.52</title></circle>
+<circle cx="714.3" cy="412.7" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-08: BRL 554,699.70</title></circle>
+<circle cx="765.7" cy="387.3" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-09: BRL 607,399.67</title></circle>
+<circle cx="817.0" cy="367.7" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-10: BRL 648,247.65</title></circle>
+<circle cx="868.3" cy="204.1" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-11: BRL 987,765.37</title></circle>
+<circle cx="919.6" cy="330.2" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2017-12: BRL 726,033.19</title></circle>
+<circle cx="970.9" cy="234.5" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-01: BRL 924,645.00</title></circle>
+<circle cx="1022.2" cy="281.8" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-02: BRL 826,437.13</title></circle>
+<circle cx="1073.5" cy="220.7" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-03: BRL 953,356.25</title></circle>
+<circle cx="1124.8" cy="210.9" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-04: BRL 973,534.09</title></circle>
+<circle cx="1176.1" cy="209.0" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-05: BRL 977,544.69</title></circle>
+<circle cx="1227.4" cy="267.5" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-06: BRL 856,077.86</title></circle>
+<circle cx="1278.7" cy="261.8" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-07: BRL 867,953.46</title></circle>
+<circle cx="1330.0" cy="276.0" r="7" fill="#176B87" stroke="#ffffff" stroke-width="3"><title>2018-08: BRL 838,576.64</title></circle>
+<text x="740" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#435466">Purchase month</text>
+<text x="48" y="420" transform="rotate(-90 48 420)" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#435466">Merchandise value (BRL)</text>
+<text x="150" y="840" font-family="Arial, sans-serif" font-size="16" fill="#526579">November 2016 has no row in the shared query output, so the line is broken across that month.</text>
+</svg>
