@@ -7,6 +7,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Schema inventory query](sql/02_schema/01_schema_inventory.sql)
 - [Monthly delivered-order analysis](sql/04_business_analysis/04_monthly_revenue_by_purchase_month.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
+- [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
 
@@ -15,6 +16,8 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 The monthly analysis groups delivered orders by purchase month. It aggregates item values and payment records separately by order before joining them, preventing one-to-many joins from multiplying totals. Merchandise value, freight, and recorded payment value are reported separately.
 
 The repeat-purchase analysis counts customers using `customer_unique_id` and includes delivered orders only. The query results show 90,557 one-time buyers (97%) and 2,801 repeat buyers (3%). Repeat buyers account for 5,921 delivered orders, or an average of 2.11 delivered orders per repeat buyer. Percentages are rounded.
+
+The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
