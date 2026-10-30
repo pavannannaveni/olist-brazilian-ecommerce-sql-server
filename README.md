@@ -20,7 +20,7 @@ The repeat-purchase analysis counts customers using `customer_unique_id` and inc
 
 The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. The top five categories account for 39.83% of merchandise value; health and beauty is the largest at BRL 1,233,131.72 (9.33%). An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
 
-The results also contain 1,537 item rows in the `[Uncategorized or missing product]` group, representing BRL 170,726.63 (1.29%) of merchandise value. The data-quality query separates blank product IDs, product IDs not found in the products table, and products with a blank category.
+The category quality check identified all 1,537 items in the `[Uncategorized or missing product]` group as products with a blank category. These items represent BRL 170,726.63 (1.29%) of merchandise value and BRL 26,969.06 in freight across 1,392 delivered orders. It found no blank item product IDs or product IDs missing from the products table.
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
