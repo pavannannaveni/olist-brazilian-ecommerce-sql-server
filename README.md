@@ -5,6 +5,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 ## Project contents
 
 - [Schema inventory query](sql/02_schema/01_schema_inventory.sql)
+- [Product category mapping quality check](sql/03_data_quality/01_product_category_mapping_gaps.sql)
 - [Monthly delivered-order analysis](sql/04_business_analysis/04_monthly_revenue_by_purchase_month.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
@@ -19,7 +20,7 @@ The repeat-purchase analysis counts customers using `customer_unique_id` and inc
 
 The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. The top five categories account for 39.83% of merchandise value; health and beauty is the largest at BRL 1,233,131.72 (9.33%). An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
 
-The results also contain 1,537 item rows in the `[Uncategorized or missing product]` group, representing BRL 170,726.63 (1.29%) of merchandise value. This fallback group combines missing product matches and products without a category, so it should be investigated separately before interpreting it as a business category.
+The results also contain 1,537 item rows in the `[Uncategorized or missing product]` group, representing BRL 170,726.63 (1.29%) of merchandise value. The data-quality query separates blank product IDs, product IDs not found in the products table, and products with a blank category.
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
