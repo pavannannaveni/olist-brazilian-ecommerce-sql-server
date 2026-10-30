@@ -17,7 +17,9 @@ The monthly analysis groups delivered orders by purchase month. It aggregates it
 
 The repeat-purchase analysis counts customers using `customer_unique_id` and includes delivered orders only. The query results show 90,557 one-time buyers (97%) and 2,801 repeat buyers (3%). Repeat buyers account for 5,921 delivered orders, or an average of 2.11 delivered orders per repeat buyer. Percentages are rounded.
 
-The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
+The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. The top five categories account for 39.83% of merchandise value; health and beauty is the largest at BRL 1,233,131.72 (9.33%). An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
+
+The results also contain 1,537 item rows in the `[Uncategorized or missing product]` group, representing BRL 170,726.63 (1.29%) of merchandise value. This fallback group combines missing product matches and products without a category, so it should be investigated separately before interpreting it as a business category.
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
