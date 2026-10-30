@@ -30,6 +30,12 @@ For assessable delivered orders with numeric reviews, the delivery and review an
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
+## Visual result
+
+![Monthly on-time delivery rate](results/monthly_on_time_delivery.png)
+
+The chart shows the share of delivered orders arriving on or before the estimated delivery date, grouped by purchase month. September 2016 contains one delivered order, so its 0% rate is based on a very small count. See the [results folder](results/README.md) for details.
+
 ## Data and setup
 
 The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; the analysis queries convert date and amount text as needed.
