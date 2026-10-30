@@ -30,11 +30,15 @@ For assessable delivered orders with numeric reviews, the delivery and review an
 
 One delivered order in September 2016 has no matching payment record. The monthly analysis reports the payment total as `NULL` and counts the missing payment record instead of treating it as a zero payment.
 
-## Visual result
+## Visual results
+
+![Monthly merchandise value](results/monthly_merchandise_sales.svg)
+
+This chart uses item prices for delivered orders by purchase month. Freight and recorded payment totals are excluded. November 2016 has no row in the shared query output, so the line is broken across that month.
 
 ![Monthly on-time delivery rate](results/monthly_on_time_delivery.png)
 
-The chart shows the share of delivered orders arriving on or before the estimated delivery date, grouped by purchase month. September 2016 contains one delivered order, so its 0% rate is based on a very small count. See the [results folder](results/README.md) for details.
+The delivery chart shows the share of delivered orders arriving on or before the estimated delivery date. September 2016 contains one delivered order, so its 0% rate is based on a very small count. See the [results folder](results/README.md) for details.
 
 ## Data and setup
 
