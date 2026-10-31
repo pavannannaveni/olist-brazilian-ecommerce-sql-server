@@ -10,6 +10,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Monthly delivered-order analysis](sql/04_business_analysis/04_monthly_revenue_by_purchase_month.sql)
 - [Monthly KPIs from the reporting view](sql/04_business_analysis/09_monthly_kpis_from_reporting_view.sql)
 - [Monthly average merchandise per order](sql/04_business_analysis/10_monthly_average_merchandise_per_order.sql)
+- [Month-over-month merchandise growth](sql/04_business_analysis/11_month_over_month_merchandise_growth.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
@@ -31,6 +32,8 @@ The original monthly analysis groups delivered orders by purchase month. It aggr
 The monthly KPI query uses the combined order reporting view and reproduces the same month-by-month figures as the original monthly analysis. This confirms that the reusable view gives the same counts and totals while keeping item and payment summaries at one row per order.
 
 The monthly average merchandise query calculates item-price value per delivered order, excluding freight. It reports averages using both all delivered orders and delivered orders with item rows. The averages match in each month because every delivered order had item rows. The monthly average ranged from BRL 124.38 in July 2017 to BRL 152.17 in October 2016.
+
+The month-over-month query compares merchandise value with the immediately preceding calendar month. November 2016 has no delivered-order row, so December's growth measures are NULL rather than comparing December with October. The very high growth percentages in October 2016 (29,777.09%) and January 2017 (1,025,573.03%) reflect comparison months with only one delivered order each; those rates should be read alongside order volume.
 
 The reusable order-level summaries aggregate item and payment details separately. They reconcile to 112,650 item rows across 98,666 orders with items, and 103,886 payment rows across 99,440 orders with payment records. There are 99,441 orders in total, so one order has no matching payment record. The combined order reporting view retains one row per order and keeps missing item or payment values as `NULL`.
 
