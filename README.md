@@ -8,6 +8,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Logical data relationship diagram](docs/relationship_diagram.md)
 - [Product category mapping quality check](sql/03_data_quality/01_product_category_mapping_gaps.sql)
 - [Monthly delivered-order analysis](sql/04_business_analysis/04_monthly_revenue_by_purchase_month.sql)
+- [Monthly KPIs from the reporting view](sql/04_business_analysis/09_monthly_kpis_from_reporting_view.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
@@ -24,7 +25,9 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 
 ## Analyses
 
-The monthly analysis groups delivered orders by purchase month. It aggregates item values and payment records separately by order before joining them, preventing one-to-many joins from multiplying totals. Merchandise value, freight, and recorded payment value are reported separately.
+The original monthly analysis groups delivered orders by purchase month. It aggregates item values and payment records separately by order before joining them, preventing one-to-many joins from multiplying totals. Merchandise value, freight, and recorded payment value are reported separately.
+
+The monthly KPI query uses the combined order reporting view and reproduces the same month-by-month figures as the original monthly analysis. This confirms that the reusable view gives the same counts and totals while keeping item and payment summaries at one row per order.
 
 The reusable order-level summaries aggregate item and payment details separately. They reconcile to 112,650 item rows across 98,666 orders with items, and 103,886 payment rows across 99,440 orders with payment records. There are 99,441 orders in total, so one order has no matching payment record. The combined order reporting view retains one row per order and keeps missing item or payment values as `NULL`.
 
