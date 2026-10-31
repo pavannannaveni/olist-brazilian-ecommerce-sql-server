@@ -16,6 +16,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Clean order items view](sql/05_views/02_clean_order_items_view.sql)
 - [Clean order payments view](sql/05_views/03_clean_order_payments_view.sql)
 - [Clean order reviews view](sql/05_views/04_clean_order_reviews_view.sql)
+- [Clean products view](sql/05_views/05_clean_products_view.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
 
@@ -47,7 +48,7 @@ The delivery chart shows the share of delivered orders arriving on or before the
 
 ## Data and setup
 
-The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; analysis queries convert date and amount text as needed. The clean orders and order items views convert their source text fields to `datetime2`, `int`, and `decimal` values. The clean payments view converts payment sequence, installment, and value fields, and the clean reviews view converts review scores and timestamps for reuse.
+The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; analysis queries convert date and amount text as needed. The clean orders, order items, and reviews views convert source text fields to usable date/time and numeric types. The clean payments view converts payment sequence, installment, and value fields. The clean products view converts product counts and measurements to integers; blank source attributes remain `NULL`.
 
 To run an analysis or create the views, open the relevant SQL file in SQL Server Management Studio and execute it against a database loaded with the Olist tables. The dataset itself is not included in this repository.
 
