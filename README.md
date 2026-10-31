@@ -17,12 +17,15 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Clean order payments view](sql/05_views/03_clean_order_payments_view.sql)
 - [Clean order reviews view](sql/05_views/04_clean_order_reviews_view.sql)
 - [Clean products view](sql/05_views/05_clean_products_view.sql)
+- [Order-level item and payment summaries](sql/05_views/06_order_level_totals.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
 
 ## Analyses
 
 The monthly analysis groups delivered orders by purchase month. It aggregates item values and payment records separately by order before joining them, preventing one-to-many joins from multiplying totals. Merchandise value, freight, and recorded payment value are reported separately.
+
+The reusable order-level summaries aggregate item and payment details separately. They reconcile to 112,650 item rows across 98,666 orders with items, and 103,886 payment rows across 99,440 orders with payment records. There are 99,441 orders in total, so one order has no matching payment record. Keeping the summaries separate supports safe joins without multiplying item or payment totals.
 
 The repeat-purchase analysis counts customers using `customer_unique_id` and includes delivered orders only. The query results show 90,557 one-time buyers (97%) and 2,801 repeat buyers (3%). Repeat buyers account for 5,921 delivered orders, or an average of 2.11 delivered orders per repeat buyer. Percentages are rounded.
 
