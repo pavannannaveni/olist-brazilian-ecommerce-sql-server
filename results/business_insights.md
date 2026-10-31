@@ -27,6 +27,13 @@ The analysis retains order-level reporting and aggregates item and payment recor
 - Health and beauty was the largest category at BRL 1,233,131.72, or 9.33% of merchandise value.
 - The analysis identified 1,537 delivered item rows with a blank product category. They accounted for BRL 170,726.63 in merchandise value (1.29%) and BRL 26,969.06 in freight across 1,392 delivered orders.
 
+### Payment methods
+
+- The analysis covers all 103,886 recorded payment rows, totaling BRL 16,008,872.12.
+- Credit card payments totaled BRL 12,542,084.19 (78.34%); boleto payments totaled BRL 2,869,361.27 (17.92%).
+- Credit card records averaged 3.51 installments, and 51,338 records (66.85%) had more than one installment.
+- An order can have payment records under multiple methods, so method-level order counts overlap. These figures describe recorded payment values and are not limited to delivered orders.
+
 ### Sellers
 
 - The analysis ranks the top 25 sellers with at least 20 delivered orders, using merchandise value from delivered items.
