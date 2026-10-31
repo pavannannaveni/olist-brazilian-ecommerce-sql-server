@@ -13,6 +13,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Month-over-month merchandise growth](sql/04_business_analysis/11_month_over_month_merchandise_growth.sql)
 - [Order-volume and average-order-value decomposition](sql/04_business_analysis/12_order_volume_vs_average_order_value.sql)
 - [Seller performance analysis](sql/04_business_analysis/13_seller_performance.sql)
+- [Payment method and installment analysis](sql/04_business_analysis/14_payment_method_and_installments.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
@@ -48,6 +49,8 @@ The repeat-purchase analysis counts customers using `customer_unique_id` and inc
 The product-category analysis reports delivered item counts, distinct delivered orders per category, merchandise value, freight, and each category's share of total merchandise value. The top five categories account for 39.83% of merchandise value; health and beauty is the largest at BRL 1,233,131.72 (9.33%). An order containing items from multiple categories is counted once in each relevant category's order count. The query uses the English category translation when available and falls back to the source category name.
 
 The seller-performance analysis ranks the top 25 sellers with at least 20 delivered orders. For each seller it reports distinct delivered orders, delivered items, merchandise value, freight, and average merchandise per seller order. The highest-ranked eligible seller, in Guariba, SP, had BRL 226,987.93 in merchandise value across 1,124 delivered orders. Orders with multiple sellers are counted for each participating seller, and these results do not measure profit. One displayed seller-city value appears to have a character-encoding issue; this does not affect the numeric totals.
+
+The payment-method analysis summarizes all 103,886 payment records, totaling BRL 16,008,872.12. Credit card represented BRL 12,542,084.19 (78.34%) and averaged 3.51 installments per record; 66.85% of credit-card records had more than one installment. Boleto represented BRL 2,869,361.27 (17.92%). Method-level distinct-order counts can overlap because an order may use multiple methods, and displayed shares are rounded.
 
 The category quality check identified all 1,537 items in the `[Uncategorized or missing product]` group as products with a blank category. These items represent BRL 170,726.63 (1.29%) of merchandise value and BRL 26,969.06 in freight across 1,392 delivered orders. It found no blank item product IDs or product IDs missing from the products table.
 
