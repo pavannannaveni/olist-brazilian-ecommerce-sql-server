@@ -11,6 +11,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Monthly KPIs from the reporting view](sql/04_business_analysis/09_monthly_kpis_from_reporting_view.sql)
 - [Monthly average merchandise per order](sql/04_business_analysis/10_monthly_average_merchandise_per_order.sql)
 - [Month-over-month merchandise growth](sql/04_business_analysis/11_month_over_month_merchandise_growth.sql)
+- [Order-volume and average-order-value decomposition](sql/04_business_analysis/12_order_volume_vs_average_order_value.sql)
 - [Repeat-purchase analysis](sql/04_business_analysis/05_repeat_purchase_analysis.sql)
 - [Product-category performance analysis](sql/04_business_analysis/06_product_category_performance.sql)
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
@@ -34,6 +35,8 @@ The monthly KPI query uses the combined order reporting view and reproduces the 
 The monthly average merchandise query calculates item-price value per delivered order, excluding freight. It reports averages using both all delivered orders and delivered orders with item rows. The averages match in each month because every delivered order had item rows. The monthly average ranged from BRL 124.38 in July 2017 to BRL 152.17 in October 2016.
 
 The month-over-month query compares merchandise value with the immediately preceding calendar month. November 2016 has no delivered-order row, so December's growth measures are NULL rather than comparing December with October. The very high growth percentages in October 2016 (29,777.09%) and January 2017 (1,025,573.03%) reflect comparison months with only one delivered order each; those rates should be read alongside order volume.
+
+The order-volume and average-order-value analysis decomposes each monthly merchandise change into an order-volume effect, valued at the prior month's average, and an average-order-value effect, applied to the current month's order count. From September to October 2016, orders increased from 1 to 265; the volume effect was BRL 35,632.08 and the average-order-value effect was BRL 4,558.06. From December 2016 to January 2017, orders increased from 1 to 750; the effects were BRL 8,164.10 and BRL 103,623.36, respectively. The latter average-value effect reflects December's unusually small one-order baseline. Effects are rounded to cents, so their displayed sum can differ from the merchandise change by BRL 0.01.
 
 The reusable order-level summaries aggregate item and payment details separately. They reconcile to 112,650 item rows across 98,666 orders with items, and 103,886 payment rows across 99,440 orders with payment records. There are 99,441 orders in total, so one order has no matching payment record. The combined order reporting view retains one row per order and keeps missing item or payment values as `NULL`.
 
