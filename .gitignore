@@ -1,0 +1,24 @@
+# Downloaded Olist source data
+/data/
+olist_*_dataset.csv
+product_category_name_translation.csv
+
+# Local SQL Server database and backup files
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.trn
+
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local Visual Studio user state
+.vs/
+*.user
