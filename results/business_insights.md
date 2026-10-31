@@ -33,6 +33,7 @@ The analysis retains order-level reporting and aggregates item and payment recor
 - Credit card payments totaled BRL 12,542,084.19 (78.34%); boleto payments totaled BRL 2,869,361.27 (17.92%).
 - Credit card records averaged 3.51 installments, and 51,338 records (66.85%) had more than one installment.
 - An order can have payment records under multiple methods, so method-level order counts overlap. These figures describe recorded payment values and are not limited to delivered orders.
+- The not_defined method group contains 3 payment records totaling BRL 0.00.
 
 ### Sellers
 
