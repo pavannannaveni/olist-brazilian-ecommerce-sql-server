@@ -25,6 +25,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Combined order reporting view](sql/05_views/07_order_reporting_view.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
+- [Business insights report](results/business_insights.md)
 
 ## Analyses
 
