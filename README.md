@@ -13,6 +13,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Monthly delivery-performance analysis](sql/04_business_analysis/07_delivery_performance_by_purchase_month.sql)
 - [Delivery timing and review-score analysis](sql/04_business_analysis/08_delivery_timing_vs_review_scores.sql)
 - [Clean orders view](sql/05_views/01_clean_orders_view.sql)
+- [Clean order items view](sql/05_views/02_clean_order_items_view.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
 
@@ -44,9 +45,9 @@ The delivery chart shows the share of delivered orders arriving on or before the
 
 ## Data and setup
 
-The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; analysis queries convert date and amount text as needed. The clean orders view converts the order timestamp columns to `datetime2` values for reuse.
+The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; analysis queries convert date and amount text as needed. The clean orders and order items views convert their source text fields to `datetime2`, `int`, and `decimal` values for reuse.
 
-To run an analysis or create the view, open its SQL file in SQL Server Management Studio and execute it against a database loaded with the Olist tables. The dataset itself is not included in this repository.
+To run an analysis or create the views, open the relevant SQL file in SQL Server Management Studio and execute it against a database loaded with the Olist tables. The dataset itself is not included in this repository.
 
 ## Data source
 
