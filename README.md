@@ -25,6 +25,7 @@ A SQL Server portfolio project exploring the public [Brazilian E-Commerce datase
 - [Combined order reporting view](sql/05_views/07_order_reporting_view.sql)
 - [Human-readable data dictionary](docs/data_dictionary.md)
 - [Imported column metadata](docs/data_dictionary_columns.csv)
+- [SQL Server setup and run guide](docs/setup_instructions.md)
 - [Business insights report](results/business_insights.md)
 
 ## Analyses
@@ -66,6 +67,8 @@ The delivery chart shows the share of delivered orders arriving on or before the
 ## Data and setup
 
 The tables are in the SQL Server database `Ecommerce`, under the `dbo` schema. Imported columns are stored as `varchar`; analysis queries convert date and amount text as needed. The clean orders, order items, and reviews views convert source text fields to usable date/time and numeric types. The clean payments view converts payment sequence, installment, and value fields. The clean products view converts product counts and measurements to integers; blank source attributes remain `NULL`.
+
+For the CSV-to-table mapping, import instructions, view creation order, and expected row counts, see the [SQL Server setup and run guide](docs/setup_instructions.md).
 
 To run an analysis or create the views, open the relevant SQL file in SQL Server Management Studio and execute it against a database loaded with the Olist tables. The dataset itself is not included in this repository.
 
