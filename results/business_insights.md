@@ -27,6 +27,12 @@ The analysis retains order-level reporting and aggregates item and payment recor
 - Health and beauty was the largest category at BRL 1,233,131.72, or 9.33% of merchandise value.
 - The analysis identified 1,537 delivered item rows with a blank product category. They accounted for BRL 170,726.63 in merchandise value (1.29%) and BRL 26,969.06 in freight across 1,392 delivered orders.
 
+### Sellers
+
+- The analysis ranks the top 25 sellers with at least 20 delivered orders, using merchandise value from delivered items.
+- The highest-ranked eligible seller, in Guariba, São Paulo state, had 1,124 delivered orders, 1,148 delivered items, BRL 226,987.93 in merchandise value, and BRL 20,019.13 in freight. Average merchandise value per seller order was BRL 201.95.
+- An order containing items from multiple sellers is counted once for each participating seller. These results describe attributed sales volume; they do not measure seller profit.
+
 ### Delivery and reviews
 
 - Of 96,478 delivered orders, 96,470 had the dates needed to assess delivery timing. Of those assessable orders, 89,936 (93.23%) arrived on or before the estimated calendar date.
@@ -41,6 +47,7 @@ The analysis retains order-level reporting and aggregates item and payment recor
 - One delivered order in September 2016 had no matching payment record. Its missing payment total is reported as NULL, not as a zero payment.
 - November 2016 has no delivered-order month in the monthly results. Its absence is not treated as zero sales when calculating month-over-month changes.
 - The decomposition defines the order-volume effect using the previous month's average merchandise per order, then calculates the average-order-value effect using the current month's order count. Displayed amounts are rounded to cents and can differ from the total change by BRL 0.01.
+- One seller-city value appeared in SSMS as “santa barbara dÂ´oeste,” which is consistent with a text-encoding mismatch. Confirm the source file encoding before re-importing; the city label does not affect the numeric seller results.
 - Findings are descriptive of this public dataset and period. They should not be interpreted as causal effects or as current marketplace performance.
 
 ## Related project files
